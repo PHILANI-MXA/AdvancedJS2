@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+
+    <script>
+        if (!localStorage.getItem("counter"))
+            localStorage.setItem("#counter", 0);
+
+        // Load current value of counter
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelector("#counter").innerHTML = localStorage.getItem("counter")
+
+            //count every time button is clicked
+            document.querySelector("button").onclick = () => {
+                // increment current counter
+                let counter = localStorage.getItem("counter");
+                counter++;
+
+                //update counter
+                document.querySelector("#counter").innerHTML = counter;
+                localStorage.setItem("counter", counter)
+            }
+        });
+
+    </script>
+</head>
+
+<body>
+    <h1 id="counter"></h1>
+    <button>Click here!</button>
+</body>
+
+</html>
